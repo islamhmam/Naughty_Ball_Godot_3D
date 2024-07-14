@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://wfbxmv42w8uo"]
+
+[ext_resource type="Script" path="res://levels/level_one.gd" id="1_88e0p"]
+[ext_resource type="MeshLibrary" uid="uid://bti186oogj1wh" path="res://meshs/redMeshLib.tres" id="1_g8pkb"]
+[ext_resource type="PackedScene" uid="uid://cw7a8onwasovt" path="res://ball.tscn" id="2_idmqh"]
+[ext_resource type="Script" path="res://meshs/GemsLabel.gd" id="3_ojtx5"]
+[ext_resource type="PackedScene" uid="uid://botak1hq7s6c" path="res://gem/gem.tscn" id="4_472rt"]
+[ext_resource type="PackedScene" uid="uid://bay3cen7hvgi5" path="res://obsticles/swiper.tscn" id="5_imwej"]
+[ext_resource type="Script" path="res://levels/WinArea.gd" id="7_1sqib"]
+[ext_resource type="Script" path="res://levels/DeathArea.gd" id="8_fqblr"]
+
+[sub_resource type="Environment" id="Environment_erdsb"]
+background_mode = 1
+background_color = Color(0, 1, 0.901961, 1)
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_336sy"]
+size = Vector3(1, 2.47168, 1)
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_t7qtr"]
+
+[node name="LevelOne" type="Node3D"]
+script = ExtResource("1_88e0p")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_g8pkb")
+cell_size = Vector3(2, 1, 2)
+data = {
+"cells": PackedInt32Array(65535, 65535, 4, 0, 65535, 4, 1, 65535, 4, 1, 0, 4, 2, 0, 4, 0, 0, 4, 65535, 0, 4, 65534, 65535, 4, 65535, 65534, 4, 0, 65534, 4, 1, 65534, 4, 2, 65534, 4, 2, 65535, 4, 2, 1, 4, 2, 2, 4, 1, 1, 4, 1, 2, 4, 0, 1, 4, 65535, 1, 4, 65534, 1, 4, 65534, 0, 4, 65534, 65534, 4, 65534, 2, 4, 65535, 2, 4, 0, 2, 4, 2, 65533, 4, 1, 65533, 4, 0, 65533, 4, 65535, 65533, 4, 65534, 65533, 4, 65533, 0, 4, 65533, 65535, 4, 65532, 65535, 4, 65532, 0, 4, 65531, 0, 6, 65531, 65535, 6, 131066, 0, 6, 131066, 65535, 6, 196601, 0, 6, 196601, 65535, 6, 262136, 0, 6, 262136, 65535, 6, 327671, 0, 6, 327671, 65535, 6, 393206, 0, 6, 393206, 65535, 6, 65525, 0, 1048580, 65525, 65535, 1048580, 65525, 65534, 1048580, 65524, 65535, 1048580, 65524, 65534, 1048580, 65523, 65534, 1048580, 65523, 65535, 1048580, 65523, 0, 1048580, 65524, 0, 1048580, 65522, 65535, 1048580, 65522, 0, 1048580, 65521, 65535, 1048580, 65521, 65534, 1048580, 65522, 65534, 1048580, 65520, 65534, 1048580, 65519, 65534, 1048580, 65520, 65535, 1048580, 65521, 0, 1048580, 65520, 0, 1048580, 65519, 0, 1048580, 65518, 0, 1048580, 65518, 65535, 1048580, 65519, 65535, 1048580, 65518, 65534, 1048580, 65517, 65534, 1048580, 65517, 65535, 1048580, 65517, 0, 1048580, 65516, 65535, 1048580, 65516, 65534, 1048580, 65516, 0, 1048580, 65515, 0, 1048580, 65515, 65535, 1048580, 65515, 65534, 1048580, 65514, 65534, 1048580, 65514, 65535, 1048580, 65514, 0, 1048580, 131050, 65535, 1048576, 131050, 65534, 1048577, 131050, 0, 1048577, 131061, 1, 4, 131060, 1, 4, 131059, 1, 4, 131058, 1, 4, 131057, 1, 4, 131056, 1, 4, 131055, 1, 4, 131054, 1, 4, 131053, 1, 4, 131052, 1, 4, 131051, 1, 4, 131050, 1, 4, 131061, 65533, 4, 131060, 65533, 4, 131059, 65533, 4, 131058, 65533, 4, 131057, 65533, 4, 131056, 65533, 4, 131055, 65533, 4, 131054, 65533, 4, 131053, 65533, 4, 131052, 65533, 4, 131051, 65533, 4, 131050, 65533, 4)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Ball" parent="." instance=ExtResource("2_idmqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.918085, -0.131525, 0.373927, 0.364386, 0.0912744, 0.926764, -0.156023, 0.987102, -0.0358717, 8.77389, 10.1582, 0.637976)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_erdsb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GemsLabel" type="Label" parent="CanvasLayer"]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 66.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+text = "gems:"
+script = ExtResource("3_ojtx5")
+
+[node name="gems" type="Node3D" parent="."]
+
+[node name="Gem" parent="gems" instance=ExtResource("4_472rt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.8296, 3, -1.11366)
+
+[node name="Gem2" parent="gems" instance=ExtResource("4_472rt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.429, 3, -1.11366)
+
+[node name="Gem3" parent="gems" instance=ExtResource("4_472rt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4266, 3, -1.11366)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.996231, 0.0867384, 0, -0.0867384, 0.996231, -12.999, 3.89871, 19.2012)
+
+[node name="Obsticles" type="Node3D" parent="."]
+
+[node name="Swiper" parent="Obsticles" instance=ExtResource("5_imwej")]
+transform = Transform3D(1, 0, 0, 0, 1.1786, 0, 0, 0, 1, -27.6415, 1.5887, -1.0076)
+
+[node name="WinArea" type="Area3D" parent="."]
+script = ExtResource("7_1sqib")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.8798, 2.25133, -1.03663)
+shape = SubResource("BoxShape3D_336sy")
+
+[node name="DeathArea" type="Area3D" parent="."]
+script = ExtResource("8_fqblr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
+transform = Transform3D(100.644, 0, 0, 0, 1.66379, 0, 0, 0, 53.2848, -8.36931, -6.7564, 0)
+shape = SubResource("HeightMapShape3D_t7qtr")
+
+[connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]
+[connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]

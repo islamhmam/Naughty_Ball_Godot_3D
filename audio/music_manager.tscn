@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1bm0jj7o25ij"]
+
+[ext_resource type="Script" path="res://audio/music_manager.gd" id="1_qluhf"]
+[ext_resource type="AudioStream" uid="uid://c2u6bdgfuw43n" path="res://audio/music/stage_2.ogg" id="2_v8o5i"]
+[ext_resource type="AudioStream" uid="uid://f53acmandwif" path="res://audio/music/stage_select.ogg" id="3_tl5e1"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_qluhf")
+
+[node name="LevelAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v8o5i")
+volume_db = -16.0
+
+[node name="SelectionAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tl5e1")
+volume_db = -16.0
